@@ -1,0 +1,15 @@
+{
+  "name": "plataformaregistromanutencaoequipamentos",
+  "version": "1.0.0",
+  "description": "Desenvolvimento de uma plataforma que permita o cadastro e gestão das ordens de serviço de uma empresa que realiza a manutenção de equipamentos eletrônicos.",
+  "main": "index.js",
+  "scripts": {
+    "start": "json-server --watch db.json --port 3001"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.3"
+  }
+}

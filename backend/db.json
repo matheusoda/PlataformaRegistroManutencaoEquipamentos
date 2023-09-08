@@ -1,0 +1,99 @@
+{
+  "status": [
+    {
+      "id": 1,
+      "name": "Em andamento"
+    },
+    {
+      "id": 2,
+      "name": "Finalizado"
+    }
+  ],
+  "types": [
+    {
+      "id": 1,
+      "name": "Celular"
+    },
+    {
+      "id": 2,
+      "name": "Tv"
+    },
+    {
+      "id": 3,
+      "name": "Notebook"
+    },
+    {
+      "id": 4,
+      "name": "Monitor"
+    },
+    {
+      "id": 5,
+      "name": "Computador Desktop"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "type": 1,
+      "dateInit": "05/07/2023",
+      "dateFin": "",
+      "datePre": "12/09/2023",
+      "description": "Troca de tela, e limpeza de componentes",
+      "status": "Finalizado"
+    },
+    {
+      "id": 2,
+      "type": 5,
+      "dateInit": "04/05/2023",
+      "dateFin": "06/07/2023",
+      "datePre": "06/07/2023",
+      "description": "Limpeza, troca de pasta térmica",
+      "status": "Finalizado"
+    },
+    {
+      "type": 3,
+      "dataInit": "05/09/2013",
+      "dateFin": "",
+      "datePre": "12/09/2023",
+      "description": "Ajuste de teclado e tela",
+      "status": "Finalizado",
+      "id": 3
+    },
+    {
+      "type": 2,
+      "dateInit": "2023-09-06T19:04:06.654Z",
+      "datePre": "2023-09-06T19:04:06.654Z",
+      "dateFin": "",
+      "description": "",
+      "status": "Em andamento",
+      "id": 4
+    },
+    {
+      "type": 2,
+      "dateInit": "2023-09-06T21:41:07.068Z",
+      "dateFin": null,
+      "datePre": null,
+      "description": "Manutenção de componentes",
+      "status": "Em andamento",
+      "id": 5
+    },
+    {
+      "type": 2,
+      "dateInit": "2023-09-06T21:43:39.231Z",
+      "dateFin": null,
+      "datePre": null,
+      "description": "Manutenção componentes",
+      "status": "Em andamento",
+      "id": 6
+    },
+    {
+      "type": null,
+      "dateInit": "2023-09-08T20:57:40.825Z",
+      "dateFin": null,
+      "datePre": null,
+      "description": "",
+      "status": "Em andamento",
+      "id": 7
+    }
+  ]
+}
