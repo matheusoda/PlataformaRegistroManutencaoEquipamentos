@@ -1,0 +1,55 @@
+
+<mat-card>
+  <mat-card-title>Nova Ordem de serviço  </mat-card-title>
+  <form [formGroup]="formulario">
+    <mat-form-field>
+      <mat-label>Selecione o tipo do equipamento</mat-label>
+      <mat-select formControlName="type" required>
+        <mat-option *ngFor="let t of types" value="{{ t.id }}" >{{t.name}}</mat-option>
+        <mat-error *ngIf="formulario.get('type')?.errors">
+          Selecione um tipo de equipamento
+        </mat-error>
+      </mat-select>
+      <!-- <mat-error *ngIf="type.invalid">{{getErrorMessage()}}</mat-error> -->
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Data Inicial</mat-label>
+      <input formControlName="dateInit" matInput [matDatepicker]="picker" required>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <mat-error *ngIf="formulario.get('dateInit')?.errors">
+        Selecione uma data válida
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Data Previsão de entrega</mat-label>
+      <input formControlName="datePre" matInput [matDatepicker]="picker1" required>
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error *ngIf="formulario.get('datePre')?.errors">
+        Selecione uma data válida
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input formControlName="description" matInput placeholder="Descrição" [(ngModel)]="order.description" name="description" required>
+      <mat-error *ngIf="formulario.get('description')?.errors">
+          Descrição obrigatória
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <mat-card-content>
+    <button mat-raised-button (click)="createOrder()" color="primary" [disabled]="!formulario.valid">
+      Criar
+    </button>
+
+
+    <button mat-raised-button (click)="cancel()">
+      Cancelar
+    </button>
+  </mat-card-content>
+</mat-card>
+
+

@@ -1,0 +1,67 @@
+<div class="mat-elevation-z4">
+  <table mat-table [dataSource]="order">
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>Id</th>
+      <td mat-cell *matCellDef="let order">{{order.id}}</td>
+    </ng-container>
+
+    <!-- Type of equipment Column -->
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef>Tipo do equipamento</th>
+      <td mat-cell *matCellDef="let order">{{order.typeName}}</td>
+    </ng-container>
+
+    <!-- Date initial Column -->
+    <ng-container matColumnDef="dateInit">
+      <th mat-header-cell *matHeaderCellDef>Data Inicial</th>
+      <td mat-cell *matCellDef="let order">{{order.dateInit | date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <!-- Date Previous Column -->
+    <ng-container matColumnDef="datePre">
+      <th mat-header-cell *matHeaderCellDef>Data Prevista</th>
+      <td mat-cell *matCellDef="let order">{{order.datePre| date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <!-- Date Final Column -->
+    <ng-container matColumnDef="dateFin">
+      <th mat-header-cell *matHeaderCellDef>Data da Entrega</th>
+      <td mat-cell *matCellDef="let order">{{order.dateFin| date:'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <!-- Description of service Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Descrição</th>
+      <td mat-cell *matCellDef="let order">{{order.description}}</td>
+    </ng-container>
+
+    <!-- Status Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef>Status</th>
+      <td mat-cell *matCellDef="let order">{{order.status}}</td>
+    </ng-container>
+
+
+    <!-- Action Column-->
+    <ng-container matColumnDef="action" >
+      <th mat-header-cell *matHeaderCellDef>Ações</th>
+      <td mat-cell *matCellDef="let order">
+        <a *ngIf="order.status === 'Finalizado'">
+          <i class="material-icons green">
+            check_circle
+          </i>
+        </a>
+        <a *ngIf="order.status === 'Em andamento'" (click)="closeOrder(order.id, order.typeName)" class="toClick">
+
+          <i class="material-icons" >
+            check_circle
+          </i>
+        </a>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let order; columns: displayedColumns;"></tr>
+  </table>
+</div>

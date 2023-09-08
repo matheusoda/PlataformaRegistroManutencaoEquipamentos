@@ -1,0 +1,4 @@
+.form-table {
+  display: flex;
+  flex-direction: column;
+}

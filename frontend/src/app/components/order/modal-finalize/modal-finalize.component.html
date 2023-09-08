@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Deseja finalizar esta ordem de serviço?</h1>
+<div mat-dialog-content>
+  <form class="form-table">
+    <span>Id</span>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" value="{{order.id}}" name="id" disabled>
+    </mat-form-field>
+    <span>Tipo do equipamento</span>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" value="{{data.type}}" name="type" disabled>
+    </mat-form-field>
+    <span>Data Inicial</span>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" value="{{order.dateInit}}" name="dateInit" disabled>
+    </mat-form-field>
+    <span>Data Prevista</span>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" value="{{order.datePre}}" name="datePre" disabled>
+    </mat-form-field>
+    <span>Descrição</span>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" value="{{order.description}}" name="description" disabled>
+    </mat-form-field>
+    <span>Status</span>
+    <mat-form-field>
+      <input matInput placeholder="Descrição" value="{{order.status}}" name="status" disabled>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button color="primary" (click)="onConfirm(order, true)">Sim</button>
+  <button mat-button (click)="onConfirm(order, false)">Cancelar</button>
+</div>
