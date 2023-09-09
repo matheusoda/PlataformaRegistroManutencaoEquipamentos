@@ -20,6 +20,7 @@ export class OrderReadComponent implements OnInit {
     'datePre',
     'dateFin',
     'description',
+    'maintenanceDescription',
     'status',
     'action',
   ];
@@ -49,7 +50,7 @@ export class OrderReadComponent implements OnInit {
         id: id,
         type: type,
       },
-      width: '40rem',
+      width: '50rem',
     });
 
     dialogRef.afterClosed().subscribe(({ order, result }) => {

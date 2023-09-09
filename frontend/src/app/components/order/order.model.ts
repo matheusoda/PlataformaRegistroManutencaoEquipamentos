@@ -6,5 +6,6 @@ export interface Order {
   dateFin: Date | null;
   datePre: Date | null;
   description: string;
+  maintenanceDescription?: string;
   status: string;
 }
