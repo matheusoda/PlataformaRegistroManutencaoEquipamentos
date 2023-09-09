@@ -40,10 +40,10 @@ export class OrderCreateComponent implements OnInit {
     });
 
     this.formulario = this.formBuilder.group({
-      type: ['', [Validators.required]],
-      dateInit: ['', [Validators.required]],
-      datePre: ['', [Validators.required]],
-      description: ['', [Validators.required], Validators.minLength(15)],
+      type: [null, [Validators.required]],
+      dateInit: [null, [Validators.required]],
+      datePre: [null, [Validators.required]],
+      description: [null, [Validators.required, Validators.minLength(15)]],
     });
   }
 

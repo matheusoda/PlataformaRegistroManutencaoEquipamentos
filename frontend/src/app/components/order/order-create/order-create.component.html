@@ -4,7 +4,7 @@
   <form [formGroup]="formulario">
     <mat-form-field>
       <mat-label>Selecione o tipo do equipamento</mat-label>
-      <mat-select formControlName="type" required>
+      <mat-select matNativeControl formControlName="type" [(ngModel)]="order.type" required>
         <mat-option *ngFor="let t of types" value="{{ t.id }}" >{{t.name}}</mat-option>
         <mat-error *ngIf="formulario.get('type')?.errors">
           Selecione um tipo de equipamento
@@ -14,8 +14,8 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Data Inicial</mat-label>
-      <input formControlName="dateInit" matInput [matDatepicker]="picker" required>
-      <mat-hint>MM/DD/YYYY</mat-hint>
+      <input formControlName="dateInit" [(ngModel)]="order.dateInit" matInput [matDatepicker]="picker" required>
+      <mat-hint>DD/MM/YYYY</mat-hint>
       <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
       <mat-error *ngIf="formulario.get('dateInit')?.errors">
@@ -24,10 +24,10 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Data Previsão de entrega</mat-label>
-      <input formControlName="datePre" matInput [matDatepicker]="picker1" required>
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
-      <mat-datepicker #picker1></mat-datepicker>
+      <input formControlName="datePre"  [(ngModel)]="order.datePre" matInput [matDatepicker]="datePre" required>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="datePre"></mat-datepicker-toggle>
+      <mat-datepicker #datePre></mat-datepicker>
       <mat-error *ngIf="formulario.get('datePre')?.errors">
         Selecione uma data válida
       </mat-error>
