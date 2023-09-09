@@ -2,6 +2,7 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { OrderService } from '../order.service';
 import { Order } from '../order.model';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-finalize',
@@ -9,17 +10,29 @@ import { Order } from '../order.model';
   styleUrls: ['./modal-finalize.component.css'],
 })
 export class ModalFinalizeComponent implements OnInit {
-  order!: Order;
+  formulario!: FormGroup;
+  order: Order = {
+    type: null,
+    dateInit: new Date(),
+    dateFin: null,
+    datePre: null,
+    description: '',
+    status: '',
+    maintenanceDescription: '',
+  };
+
   displayedColumns = [
     'id',
     'type',
     'dateInit',
     'datePre',
     'description',
+    'maintenanceDescription',
     'status',
   ];
 
   constructor(
+    private formBuilder: FormBuilder,
     private orderService: OrderService,
     public dialogRef: MatDialogRef<ModalFinalizeComponent>,
     @Inject(MAT_DIALOG_DATA)
@@ -32,7 +45,14 @@ export class ModalFinalizeComponent implements OnInit {
   ngOnInit(): void {
     this.orderService.readById(this.data.id).subscribe((order) => {
       this.order = order;
-      console.log(this.order);
+    });
+
+    this.formulario = this.formBuilder.group({
+      dateFin: [null, [Validators.required]],
+      maintenanceDescription: [
+        null,
+        [Validators.required, Validators.minLength(15)],
+      ],
     });
   }
 

@@ -1,29 +1,47 @@
 <h1 mat-dialog-title>Deseja finalizar esta ordem de serviço?</h1>
 <div mat-dialog-content>
-  <form class="form-table">
+  <form class="form-table" [formGroup]="formulario">
     <span>Id</span>
     <mat-form-field>
-      <input matInput placeholder="Descrição" value="{{order.id}}" name="id" disabled>
+      <input matInput placeholder="Id" value="{{order.id}}" name="id" disabled>
     </mat-form-field>
     <span>Tipo do equipamento</span>
     <mat-form-field>
-      <input matInput placeholder="Descrição" value="{{data.type}}" name="type" disabled>
+      <input matInput placeholder="Tipo do equipamento" value="{{data.type}}" name="type" disabled>
     </mat-form-field>
     <span>Data Inicial</span>
     <mat-form-field>
-      <input matInput placeholder="Descrição" value="{{order.dateInit}}" name="dateInit" disabled>
+      <input matInput placeholder="Data Inicial" value="{{order.dateInit}}" name="dateInit" disabled>
     </mat-form-field>
     <span>Data Prevista</span>
     <mat-form-field>
-      <input matInput placeholder="Descrição" value="{{order.datePre}}" name="datePre" disabled>
+      <input matInput placeholder="Data Prevista" value="{{order.datePre}}" name="datePre" disabled>
+    </mat-form-field>
+    <span>Data Final</span>
+    <mat-form-field>
+      <mat-label>Data Previsão de entrega</mat-label>
+      <input formControlName="dateFin" [(ngModel)]="order.dateFin" matInput [matDatepicker]="picker1" required>
+      <mat-hint>DD/MM/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error *ngIf="formulario.get('dateFin')?.errors">
+        Selecione uma data válida
+      </mat-error>
     </mat-form-field>
     <span>Descrição</span>
     <mat-form-field>
       <input matInput placeholder="Descrição" value="{{order.description}}" name="description" disabled>
     </mat-form-field>
+    <span>Descrição da manutenção</span>
+    <mat-form-field>
+      <input matInput placeholder="Descriçãoda manutenção" [(ngModel)]="order.maintenanceDescription" name="maintenanceDescription" formControlName="maintenanceDescription">
+    </mat-form-field>
+    <mat-error *ngIf="formulario.get('maintenanceDescription')?.errors">
+      Descrição obrigatória
+    </mat-error>
     <span>Status</span>
     <mat-form-field>
-      <input matInput placeholder="Descrição" value="{{order.status}}" name="status" disabled>
+      <input matInput placeholder="Status" value="{{order.status}}" name="status" disabled>
     </mat-form-field>
   </form>
 </div>
