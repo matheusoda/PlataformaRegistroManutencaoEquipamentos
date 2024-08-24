@@ -39,7 +39,9 @@ export class OrderReadComponent implements OnInit {
   validateData(): void {
     this.order.forEach((o) => {
       this.types.filter((t) => {
-        if (t.id === o.type) o.typeName = t.name;
+        if (t.id === Number(o.type)) {
+          o.typeName = t.name;
+        }
       });
     });
   }

@@ -104,6 +104,33 @@
       "status": "Finalizado",
       "id": 8,
       "maintenanceDescription": "Foi realizada troca de muita coisa"
+    },
+    {
+      "type": "1",
+      "dateInit": "2024-08-24T00:13:08.331Z",
+      "dateFin": null,
+      "datePre": "2024-08-30T03:00:00.000Z",
+      "description": "Manutenção de componentes",
+      "status": "Em andamento",
+      "id": 9
+    },
+    {
+      "type": "Notebook",
+      "dateInit": "2024-08-24T00:40:08.402Z",
+      "dateFin": null,
+      "datePre": "2024-08-24T03:00:00.000Z",
+      "description": "Manutenção de componentes",
+      "status": "Em andamento",
+      "id": 10
+    },
+    {
+      "type": "{t.id}",
+      "dateInit": "2024-08-24T00:42:38.917Z",
+      "dateFin": null,
+      "datePre": "2024-08-30T03:00:00.000Z",
+      "description": "Manutenção de componentes",
+      "status": "Em andamento",
+      "id": 11
     }
   ]
 }
